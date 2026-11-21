@@ -4,12 +4,6 @@
 {{- $featured := where hugo.Data.music "featured" true -}}
 
 <section class="hero">
-  <div class="leaves" aria-hidden="true">
-    {{- range seq 14 }}
-    <span class="leaf leaf-{{ mod . 4 }}" style="--i: {{ . }}; --x: {{ mod (mul . 37) 100 }}%; --d: {{ add 11 (mod (mul . 3) 7) }}s"></span>
-    {{- end }}
-  </div>
-
   <div class="hero-grid wrap">
     <div class="hero-inner">
       <p class="eyebrow">modern folk · fiddles · foot-stomps</p>
