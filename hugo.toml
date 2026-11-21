@@ -1,0 +1,45 @@
+baseURL = "https://murraycollier.github.io/autumn-and-the-pinholes/"
+locale = "en-GB"
+title = "Autumn and the Pinholes"
+enableRobotsTXT = true
+disableKinds = ["taxonomy", "term"]
+
+[markup]
+  [markup.goldmark.renderer]
+    unsafe = true
+
+[params]
+  description = "Autumn and the Pinholes: modern folk songs with fiddles, foot-stomps and a few loose screws."
+  tagline = "Modern folk songs for crooked porches, damp hedgerows and very long car journeys. Slightly out of tune on purpose."
+  # Replace with the band's real booking address.
+  bookingEmail = "bookings@example.com"
+  # Optional: a Formspree (or similar) endpoint. Leave empty to show email-only contact.
+  formEndpoint = ""
+
+  [params.socials]
+    instagram = ""
+    bandcamp = ""
+    spotify = ""
+    youtube = ""
+
+[menu]
+  [[menu.main]]
+    name = "Music"
+    pageRef = "/music"
+    weight = 10
+  [[menu.main]]
+    name = "Shows"
+    pageRef = "/shows"
+    weight = 20
+  [[menu.main]]
+    name = "Gallery"
+    pageRef = "/gallery"
+    weight = 30
+  [[menu.main]]
+    name = "About"
+    pageRef = "/about"
+    weight = 40
+  [[menu.main]]
+    name = "Contact"
+    pageRef = "/contact"
+    weight = 50

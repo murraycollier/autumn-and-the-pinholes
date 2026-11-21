@@ -1,0 +1,13 @@
+<footer class="site-footer">
+  <div>
+    <p class="footer-mark">Autumn and the Pinholes, made with Hugo</p>
+    <p class="small">&copy; {{ now.Year }} Autumn and the Pinholes. All songs written by the band.</p>
+  </div>
+  <ul class="socials">
+    {{- range $name, $url := site.Params.socials }}
+      {{- with $url }}
+      <li><a href="{{ . }}" target="_blank" rel="me noopener">{{ $name }}</a></li>
+      {{- end }}
+    {{- end }}
+  </ul>
+</footer>

@@ -1,0 +1,26 @@
+{{ define "main" }}
+<div class="wrap">
+  <header class="page-head reveal">
+    <p class="kicker">the story so far</p>
+    <h1>{{ .Title }}</h1>
+  </header>
+
+  <article class="prose reveal">
+    {{ .Content }}
+  </article>
+
+  <section class="members">
+    <h2 class="block-title reveal">The band</h2>
+    <div class="member-grid">
+      {{- range hugo.Data.members }}
+      <article class="member card reveal" style="--tilt: {{ .tilt }}">
+        <div class="member-avatar" aria-hidden="true">{{ substr .name 0 1 }}</div>
+        <h3>{{ .name }}</h3>
+        <p class="meta">{{ .role }}</p>
+        <p>{{ .bio }}</p>
+      </article>
+      {{- end }}
+    </div>
+  </section>
+</div>
+{{ end }}

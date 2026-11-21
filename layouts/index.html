@@ -1,0 +1,116 @@
+{{ define "main" }}
+{{- $today := now.Format "2006-01-02" -}}
+{{- $upcoming := sort (where hugo.Data.shows "date" ">=" $today) "date" -}}
+{{- $featured := where hugo.Data.music "featured" true -}}
+
+<section class="hero">
+  <div class="leaves" aria-hidden="true">
+    {{- range seq 14 }}
+    <span class="leaf leaf-{{ mod . 4 }}" style="--i: {{ . }}; --x: {{ mod (mul . 37) 100 }}%; --d: {{ add 11 (mod (mul . 3) 7) }}s"></span>
+    {{- end }}
+  </div>
+
+  <div class="hero-grid wrap">
+    <div class="hero-inner">
+      <p class="eyebrow">modern folk · fiddles · foot-stomps</p>
+      <h1 class="display">Autumn <span class="amp">&amp;</span> the <span class="pinholes">Pinholes</span></h1>
+      <p class="lede">{{ site.Params.tagline }}</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="{{ "music/" | relURL }}">Listen to the records</a>
+        <a class="btn" href="{{ "shows/" | relURL }}">Tour dates</a>
+      </div>
+    </div>
+    <div class="hero-art">
+      <img src="{{ "images/covers/pinhole-sessions.svg" | relURL }}" alt="" width="900" height="900">
+    </div>
+  </div>
+</section>
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    {{- range seq 2 }}
+    <div class="ticker-group">
+      <span>Fiddles</span><span>Foot-stomps</span><span>Loose screws</span><span>Damp hedgerows</span><span>Melodica (sorry)</span><span>Allotment blues</span>
+    </div>
+    {{- end }}
+  </div>
+</div>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <p class="kicker">the latest</p>
+        <h2>New record, slightly wonky</h2>
+      </div>
+      <a class="btn" href="{{ "music/" | relURL }}">All releases</a>
+    </div>
+
+    {{- with index $featured 0 }}
+    <article class="feature">
+      <div class="reveal">
+        <img class="cover" src="{{ .cover | relURL }}" alt="Cover art for {{ .title }}" width="900" height="900" loading="lazy">
+      </div>
+      <div class="reveal">
+        <p class="meta">{{ .type }} · {{ .year }}</p>
+        <h3 class="feature-title">{{ .title }}</h3>
+        <p>{{ .blurb }}</p>
+        <p class="tracks-preview"><strong>Opening tracks:</strong> {{ delimit (first 4 .tracks) " · " }}</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="{{ "music/" | relURL }}">Tracklist &amp; links</a>
+        </div>
+      </div>
+    </article>
+    {{- end }}
+  </div>
+</section>
+
+<section class="section section-tint">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <p class="kicker">come and stand near us</p>
+        <h2>Next shows</h2>
+      </div>
+      <a class="btn" href="{{ "shows/" | relURL }}">Every date</a>
+    </div>
+
+    {{- if $upcoming }}
+    <ul class="show-list">
+      {{- range first 3 $upcoming }}
+      <li class="show reveal">
+        <time class="show-date" datetime="{{ .date }}">
+          <span class="dow">{{ dateFormat "Mon" .date }}</span>
+          <span class="day">{{ dateFormat "2" .date }}</span>
+          <span class="mon">{{ dateFormat "Jan" .date }}</span>
+        </time>
+        <div>
+          <p class="show-venue">{{ .venue }}</p>
+          <p class="show-meta">{{ .city }} · {{ .time }}{{ with .note }} · {{ . }}{{ end }}</p>
+        </div>
+        <div class="show-end">
+          {{- with .tickets }}<a class="btn btn-small" href="{{ . }}" target="_blank" rel="noopener">Tickets</a>{{ else }}<span class="pill">Tickets TBC</span>{{ end -}}
+        </div>
+      </li>
+      {{- end }}
+    </ul>
+    {{- else }}
+    <p class="reveal">No dates announced yet. The van is being fixed.</p>
+    {{- end }}
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap about-teaser reveal">
+    <p class="kicker">who are these people?</p>
+    <h2>Five humans, one van, lots of harmonies</h2>
+    {{- with site.GetPage "/about" }}
+    <p class="lede">{{ .Params.teaser }}</p>
+    {{- end }}
+    <div class="cta-row">
+      <a class="btn" href="{{ "about/" | relURL }}">Read the story</a>
+      <a class="btn btn-primary" href="{{ "contact/" | relURL }}">Book us, or say hello</a>
+    </div>
+  </div>
+</section>
+{{ end }}

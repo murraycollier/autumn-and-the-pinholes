@@ -1,0 +1,28 @@
+{{ define "main" }}
+<div class="wrap">
+  <header class="page-head reveal">
+    <p class="kicker">snaps &amp; scribbles</p>
+    <h1>{{ .Title }}</h1>
+    {{- with .Description }}<p class="lede">{{ . }}</p>{{ end }}
+  </header>
+
+  <div class="gallery">
+    {{- range hugo.Data.gallery }}
+    <figure class="shot reveal">
+      <a href="{{ .src | relURL }}" data-lightbox data-caption="{{ .caption }}">
+        <img src="{{ .src | relURL }}" alt="{{ .alt }}" width="1200" height="900" loading="lazy">
+      </a>
+      <figcaption>{{ .caption }}</figcaption>
+    </figure>
+    {{- end }}
+  </div>
+</div>
+
+<dialog id="lightbox" class="lightbox" aria-label="Enlarged photo">
+  <div class="lightbox-inner">
+    <button class="lightbox-close" type="button" aria-label="Close">&times;</button>
+    <img src="" alt="">
+    <p class="lightbox-caption"></p>
+  </div>
+</dialog>
+{{ end }}

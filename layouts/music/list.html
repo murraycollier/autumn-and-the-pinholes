@@ -1,0 +1,38 @@
+{{ define "main" }}
+<div class="wrap">
+  <header class="page-head reveal">
+    <p class="kicker">discography</p>
+    <h1>{{ .Title }}</h1>
+    {{- with .Description }}<p class="lede">{{ . }}</p>{{ end }}
+  </header>
+
+  {{- range hugo.Data.music }}
+  <article class="release card reveal">
+    <img class="cover" src="{{ .cover | relURL }}" alt="Cover art for {{ .title }}" width="900" height="900" loading="lazy">
+    <div class="release-body">
+      <p class="meta">{{ .type }} · {{ .year }}</p>
+      <h2>{{ .title }}</h2>
+      <p>{{ .blurb }}</p>
+
+      <details>
+        <summary>Tracklist ({{ len .tracks }} tracks)</summary>
+        <ol class="tracklist">
+          {{- range .tracks }}<li>{{ . }}</li>{{ end }}
+        </ol>
+      </details>
+
+      <ul class="links">
+        {{- range $name, $url := .links }}
+          {{- with $url }}
+          <li><a class="btn btn-small" href="{{ . }}" target="_blank" rel="noopener">{{ $name }}</a></li>
+          {{- end }}
+        {{- end }}
+        {{- $hasLinks := false }}
+        {{- range $url := .links }}{{ with $url }}{{ $hasLinks = true }}{{ end }}{{ end }}
+        {{- if not $hasLinks }}<li><span class="pill">Streaming links coming soon</span></li>{{ end }}
+      </ul>
+    </div>
+  </article>
+  {{- end }}
+</div>
+{{ end }}

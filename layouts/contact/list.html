@@ -1,0 +1,43 @@
+{{ define "main" }}
+<div class="wrap">
+  <header class="page-head reveal">
+    <p class="kicker">say hello</p>
+    <h1>{{ .Title }}</h1>
+  </header>
+
+  <div class="contact-grid">
+    <div class="reveal">
+      <div class="prose">{{ .Content }}</div>
+      <p class="big-email"><a href="mailto:{{ site.Params.bookingEmail }}">{{ site.Params.bookingEmail }}</a></p>
+      <ul class="socials">
+        {{- range $name, $url := site.Params.socials }}
+          {{- with $url }}
+          <li><a href="{{ . }}" target="_blank" rel="me noopener">{{ $name }}</a></li>
+          {{- end }}
+        {{- end }}
+      </ul>
+    </div>
+
+    <aside class="card contact-card reveal">
+      {{- with site.Params.formEndpoint }}
+      <form action="{{ . }}" method="POST">
+        <label>Name
+          <input type="text" name="name" required autocomplete="name">
+        </label>
+        <label>Email
+          <input type="email" name="email" required autocomplete="email">
+        </label>
+        <label>Message
+          <textarea name="message" rows="5" required></textarea>
+        </label>
+        <button class="btn btn-primary" type="submit">Send it</button>
+      </form>
+      {{- else }}
+      <h2>Drop us a line</h2>
+      <p>Our inbox is a shoebox under the van seat, but it works.</p>
+      <a class="btn btn-primary" href="mailto:{{ site.Params.bookingEmail }}?subject=Hello%20Autumn%20and%20the%20Pinholes">Email the band</a>
+      {{- end }}
+    </aside>
+  </div>
+</div>
+{{ end }}

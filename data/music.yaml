@@ -1,0 +1,38 @@
+- title: "Loose Screws"
+  type: "Album"
+  year: "2026"
+  cover: "/images/covers/loose-screws.svg"
+  featured: true
+  blurb: "Eleven songs about allotments, bad weather and the moon, recorded in a converted chapel with the heating off. The fiddle sounds a bit like it is laughing at you. That is on purpose."
+  tracks:
+    - "Crooked Porch"
+    - "Damp Hedgerow Waltz"
+    - "The Moon Is a Bit Much"
+    - "Allotment Blues"
+    - "Loose Screws"
+    - "Sixty Miles of Lay-by"
+    - "Tin Whistle Weather"
+    - "Nobody Told the Badger"
+    - "Pinhole"
+    - "Kettle Song (Reprise)"
+    - "Autumn Goes Home"
+  links:
+    bandcamp: ""
+    spotify: ""
+    apple: ""
+
+- title: "Pinhole Sessions"
+  type: "EP"
+  year: "2025"
+  cover: "/images/covers/pinhole-sessions.svg"
+  featured: false
+  blurb: "Four songs recorded in a garden shed with one good microphone and a borrowed accordion. Warm, a bit lo-fi, and the best thing we have made so far, according to our mums."
+  tracks:
+    - "Shed Light"
+    - "Borrowed Accordion"
+    - "The Long Way Round"
+    - "Dandelion Clock Waltz"
+  links:
+    bandcamp: ""
+    spotify: ""
+    apple: ""

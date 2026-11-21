@@ -1,0 +1,60 @@
+{{ define "main" }}
+{{- $today := now.Format "2006-01-02" -}}
+{{- $upcoming := sort (where hugo.Data.shows "date" ">=" $today) "date" -}}
+{{- $past := sort (where hugo.Data.shows "date" "<" $today) "date" "desc" -}}
+<div class="wrap">
+  <header class="page-head reveal">
+    <p class="kicker">come and stand near us</p>
+    <h1>{{ .Title }}</h1>
+    {{- with .Description }}<p class="lede">{{ . }}</p>{{ end }}
+  </header>
+
+  <section class="shows-block">
+    <h2 class="block-title reveal">Coming up</h2>
+    {{- if $upcoming }}
+    <ul class="show-list">
+      {{- range $upcoming }}
+      <li class="show reveal">
+        <time class="show-date" datetime="{{ .date }}">
+          <span class="dow">{{ dateFormat "Mon" .date }}</span>
+          <span class="day">{{ dateFormat "2" .date }}</span>
+          <span class="mon">{{ dateFormat "Jan 2006" .date }}</span>
+        </time>
+        <div>
+          <p class="show-venue">{{ .venue }}</p>
+          <p class="show-meta">{{ .city }} · {{ .time }}{{ with .note }} · {{ . }}{{ end }}</p>
+        </div>
+        <div class="show-end">
+          {{- with .tickets }}<a class="btn btn-small" href="{{ . }}" target="_blank" rel="noopener">Tickets</a>{{ else }}<span class="pill">Tickets TBC</span>{{ end -}}
+        </div>
+      </li>
+      {{- end }}
+    </ul>
+    {{- else }}
+    <p class="reveal">Nothing booked just yet. Check back soon, or <a href="{{ "contact/" | relURL }}">ask us to play your living room</a>.</p>
+    {{- end }}
+  </section>
+
+  {{- if $past }}
+  <section class="shows-block">
+    <h2 class="block-title reveal">Already happened</h2>
+    <ul class="show-list">
+      {{- range $past }}
+      <li class="show past reveal">
+        <time class="show-date" datetime="{{ .date }}">
+          <span class="dow">{{ dateFormat "Mon" .date }}</span>
+          <span class="day">{{ dateFormat "2" .date }}</span>
+          <span class="mon">{{ dateFormat "Jan 2006" .date }}</span>
+        </time>
+        <div>
+          <p class="show-venue">{{ .venue }}</p>
+          <p class="show-meta">{{ .city }}{{ with .note }} · {{ . }}{{ end }}</p>
+        </div>
+        <div class="show-end"><span class="pill">Done</span></div>
+      </li>
+      {{- end }}
+    </ul>
+  </section>
+  {{- end }}
+</div>
+{{ end }}

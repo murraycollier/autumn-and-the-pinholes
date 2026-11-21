@@ -1,0 +1,11 @@
+{{ define "main" }}
+<div class="wrap notfound">
+  <p class="kicker">lost in the hedgerow</p>
+  <h1 class="display-sm">404: this page has wandered off</h1>
+  <p class="lede">Nothing here. The leaves have blown over it. Try the home page, or check the shows.</p>
+  <div class="cta-row">
+    <a class="btn btn-primary" href="{{ "/" | relURL }}">Back home</a>
+    <a class="btn" href="{{ "shows/" | relURL }}">Tour dates</a>
+  </div>
+</div>
+{{ end }}
