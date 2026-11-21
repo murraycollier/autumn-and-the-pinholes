@@ -8,17 +8,7 @@
   tilt: "3deg"
   bio: "Has been playing the fiddle since age seven and is still not sure the neighbours forgive him. Responsible for most of the key changes and all of the wobbles."
 
-- name: "Juniper"
-  role: "Double bass, bass harmonica"
-  tilt: "-2deg"
-  bio: "Holds the whole thing together from the back with a bass that is almost as big as she is. Is the only one who can read the setlist in the dark."
-
-- name: "Dev"
-  role: "Banjo, bodhrán, percussion (and the van)"
-  tilt: "4deg"
-  bio: "Keeps the time, keeps the van running and keeps a spare set of strings in every pocket. Will not tell you where the van is parked."
-
-- name: "Rook"
-  role: "Drums, tambourine, tea"
-  tilt: "-5deg"
-  bio: "Plays drums with brushes when the room is quiet and with sticks when the room is not. Makes the tea on tour and is very particular about it."
+- name: "Biscuit"
+  role: "Cat. Tempo consultant."
+  tilt: "0deg"
+  bio: "Has never once been on time. Sleeps on the amp, judges the setlist from the windowsill and has been known to walk off stage mid-song. Not available for interviews."
