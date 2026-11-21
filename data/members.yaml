@@ -1,12 +1,12 @@
-- name: "Autumn"
+- name: "Riley"
   role: "Vocals, guitar, melodica"
   tilt: "-4deg"
-  bio: "Writes songs about allotments, ex-boyfriends and the moon. Sings like she is telling you a secret in a pub toilet, then hits the big note anyway."
+  bio: "Writes songs about allotments, ex-boyfriends and the moon. Sings like they are telling you a secret in a pub toilet, then hits the big note anyway."
 
-- name: "Sam"
-  role: "Fiddle, mandolin, backing vocals"
+- name: "Josh"
+  role: "Good looks"
   tilt: "3deg"
-  bio: "Has been playing the fiddle since age seven and is still not sure the neighbours forgive him. Responsible for most of the key changes and all of the wobbles."
+  bio: "Joined for the biscuits and his good looks, and has been asked to do very little since. Stands at the front for the photos."
 
 - name: "Autumn (the cat)"
   role: "Cat. Tempo consultant."
